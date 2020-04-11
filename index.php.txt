@@ -1,1 +1,60 @@
-uhdusihdiushiudhsuiduisdiuh
+<?php
+	
+	session_start();
+
+	$categoria = [];
+	$categoria[] = 'infantil';
+	$categoria[] = 'adolecente';
+	$categoria[] = 'adulto';
+
+	$nome = $_POST['nome'];
+	$idade = $_POST['idade'];
+
+	if(empty($nome)){
+		$_SESSION['mensagem de erro'] = 'O NOME NAO PODE SER VAZIO';
+		header("location: formulario.php");
+		
+
+	}
+
+	else if (strlen($nome) < 3) {
+		$_SESSION['mensagem de erro'] = 'o nome nao pode ter menos de 3 caracter1';
+		header("location: formulario.php");
+		return;
+	} 
+	else if (strlen($nome) > 10) {
+		$_SESSION['mensagem de erro'] = 'o nome nao pode ser tao grande';
+		header("location: formulario.php");
+		return;
+	
+	}else if(strlen($nome)>=4 && strlen($nome) <= 9){
+		$_SESSION['mensagem de erro'] = $nome;
+		header("location: formulario.php");
+		
+	}
+
+
+	if(!is_numeric($idade)){
+		$_SESSION['mensagem de erro'] = 'digite sua idade2';
+		header("location:formulario.php");
+		
+	
+	
+	}else{
+		echo "  idade :  $idade";
+
+		if($idade < 18){
+			echo " Menor ";
+
+		}else if($idade >=18 ){
+			echo "maior";
+		
+		header("location:formulario.php");
+		
+		}
+	}
+	
+	
+
+
+  ?>
