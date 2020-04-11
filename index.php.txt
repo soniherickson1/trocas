@@ -1,4 +1,41 @@
 <?php
+ session_start();
+
+?>
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulario de incricao</title>
+	<meta name="author" content="">
+	<meta name="description" content="width-device-width", initial-scale">
+</head>
+<body>
+	<p>FORMULARIO PARA COMPETICÃO DE COMPETIDORES</p>
+
+	<form action="script.php" method="post">
+		<?php 
+			$mensageDeErro = isset($_SESSION['mensagem de erro'])?$_SESSION['mensagem de erro'] : '';
+			if(!empty($mensageDeErro)){
+				echo $mensageDeErro;
+			}
+		?>
+		<p>Seu nome: <input type="text" placeholder="nome" name="nome"></p>
+		<p>Sua idade: <input type="text" placeholder="idade" name="idade"></p>
+		<p> <input type="submit" value="Enviar \°/" /> </p>
+	</form>
+	
+	  <a href="script.php"><?php unset($_SESSION); ?> sair</a>
+
+
+
+</body>
+</html>
+
+
+<?php
 	
 	session_start();
 
